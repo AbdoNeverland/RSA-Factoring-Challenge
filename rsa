@@ -35,7 +35,7 @@ def getf(n):
         y = g(g(y, c), c) % n
         y = g(g(y, c), c) % n
         d = gcd(abs(x - y), n)
-    if d == n or not is_prime(d) or not is_prime(n // d):
+    if d == n or  is_prime(d)== False or is_prime(n // d)== False:
         return getf(n)
     else:
         return d

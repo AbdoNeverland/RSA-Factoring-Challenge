@@ -32,8 +32,8 @@ def getf(n):
 
     while d == 1:
         x = g(x, c) % n
-        y = g(g(y, c), c) % n
-        y = g(g(y, c), c) % n
+        y = g(g(y, c)%n, c) % n
+        y = g(g(y, c)%n, c) % n
         d = gcd(abs(x - y), n)
 
     if d == n:
