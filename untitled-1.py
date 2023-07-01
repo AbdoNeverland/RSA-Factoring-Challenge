@@ -59,7 +59,6 @@ def is_prime(n, prec=3):
         a = randrange(2, n - 2+1)
         if pow(a, n - 1, n) != 1:
             return False
-
     return True
 print(is_prime(37))
 #print(getf(193993833211))

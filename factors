@@ -80,8 +80,4 @@ for line in f:
     else:
         p = getf(n)
     print(f"{n}={n // p}*{(p)}")
-    # n = randrange(99999999999999999999)
-    # print(f"rand {n}")
-    # fa = getFactor(n)
-    # print(f"{n}={fa[1]}*{fa[0]}")
 f.close()
