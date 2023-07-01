@@ -1,7 +1,3 @@
-#!/usr/bin/python3
-#import time
-#start = time.time()
-import sys
 
 c = 1
 def gcd(x,y):
@@ -14,9 +10,7 @@ def g(x, c):
 def getf(n):
     global c
     if (n == 1):
-        return n
-    if n % 2 ==0:
-        return 2
+        return n    
     x = y = 2
     c +=1
     d=1
@@ -31,16 +25,5 @@ def getf(n):
         return getf(n)
     else:
         return d
-def getFactor(n):
-    p = getf(n)
-    return [p, int(n / p)]
 
-f = open(sys.argv[1],"r")
-
-for l in f:
-    n = int(l)
-    fa = getFactor(n)
-    print(f"{n}={fa[1]}*{fa[0]}")
-f.close()
-#end = time.time()
-#print(f"time ={end - start}")
+print(getf(239809320265259))
