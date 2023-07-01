@@ -50,7 +50,7 @@ def isPrime(n):
 def getFactor(n):
     global c
     c = 1
-    if n < 1000000 and isPrime(n):
+    if n < 193993833211 and isPrime(n):
         return [n, 1]
     try:
         p = getf(n)
