@@ -76,7 +76,7 @@ for line in f:
     n = int(line)
     p = 1
     if is_prime(n):
-        p = 1
+        p = 10
         continue
     else:
         p = getf(n)
