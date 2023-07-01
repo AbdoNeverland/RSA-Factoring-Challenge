@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+from random import randrange
+f = open("t2","w")
+
+for i in range(20):
+    a = 17
+    b = randrange(999)
+    print(f"{a*b}={a}*{b}")
+    f.write(f"{a*b}\n")
+f.close()
