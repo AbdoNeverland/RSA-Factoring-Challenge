@@ -30,5 +30,5 @@ def isPrime(n):
         if n%i == 0:
             return i
     return -1
-print(isPrime(719310057817))
+print(isPrime(691226912809))
 #print(getf(193993833211))

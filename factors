@@ -50,7 +50,7 @@ def isPrime(n):
 def getFactor(n):
     global c
     c = 1
-    if n < 193993833211 and isPrime(n):
+    if n < 999999999999 and isPrime(n):
         return [n, 1]
     try:
         p = getf(n)
@@ -67,7 +67,10 @@ for l in f:
     n = int(l)
     fa = getFactor(n)
     print(f"{n}={fa[1]}*{fa[0]}")
-    n = randrange(999999999999)
+    #n = randrange(999999999999)
+    #print(f"rand {n}")
+    #fa = getFactor(n)
+    #print(f"{n}={fa[1]}*{fa[0]}")    
 f.close()
 #end = time.time()
 #print(f"time ={end - start}")
