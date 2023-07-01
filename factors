@@ -31,9 +31,9 @@ def getf(n):
     d = 1
 
     while d == 1:
-        x = (pow(x, 2, n)+ c + n) % n
-        y = (pow(y,2,n) + c + n) % n
-        y = (pow(y,2,n) + c + n) % n
+        x = g(x, c) % n
+        y = g(g(y, c)%n, c) % n
+        y = g(g(y, c)%n, c) % n
         d = gcd(abs(x - y), n)
 
     if d == n:
