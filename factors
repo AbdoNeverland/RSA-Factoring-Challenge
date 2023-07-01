@@ -3,8 +3,11 @@
 #start = time.time()
 import sys
 
-
 def getFactor(n):
+    if n == 1:
+        return [1, 1]
+    if n == 2:
+        return [1, 2]
     for i in range(2, n):
         if not (n % i):
             return [i, int(n / i)]
