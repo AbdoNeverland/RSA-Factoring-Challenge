@@ -76,8 +76,8 @@ for line in f:
     n = int(line)
     p = 1
     if is_prime(n):
-        continue
         p = 1
+        continue
     else:
         p = getf(n)
     print(f"{n}={n // p}*{(p)}")
