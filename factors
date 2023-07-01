@@ -39,8 +39,11 @@ def getf(n):
 
 
 def getFactor(n):
+    try:
         p = getf(n)
         return [p, int(n / p)]
+    except:
+        return [n, 1]
 
 
 f = open(sys.argv[1], "r")
