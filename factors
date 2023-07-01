@@ -50,10 +50,13 @@ def isPrime(n):
 def getFactor(n):
     global c
     c = 1
-    if isPrime(n):
+    if n < 1000000 and isPrime(n):
         return [n, 1]
-    p = getf(n)
-    return [p, (n // p)]
+    try:
+        p = getf(n)
+        return [p, (n // p)]
+    except:
+        return [n, 1]
 
 #print(getFactor(1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139))
 #import sys
