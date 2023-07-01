@@ -43,7 +43,7 @@ def getf(n):
 
 
 def is_prime_smaller(n):
-    for i in range(2, n // 2):
+    for i in range(2, n // 2 + 1):
         if n % i == 0:
             return False
     return True
@@ -73,11 +73,14 @@ f = open(sys.argv[1], "r")
 
 for line in f:
     n = int(line)
-    fa = getFactor(n)
-    print(f"{n}={fa[1]}*{fa[0]}")
-    continue
-    n = randrange(99999999999999999999)
-    print(f"rand {n}")
-    fa = getFactor(n)
-    print(f"{n}={fa[1]}*{fa[0]}")
+    p = 1
+    if is_prime(n):
+        p = 1
+    else:
+        p = getf(n)
+    print(f"{n}={n // p}*{(p)}")
+    # n = randrange(99999999999999999999)
+    # print(f"rand {n}")
+    # fa = getFactor(n)
+    # print(f"{n}={fa[1]}*{fa[0]}")
 f.close()
