@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-#import time
-#start = time.time()
 import sys
 from random import randrange
-import math
+
 c = 1
 
 
@@ -29,7 +27,7 @@ def getf(n):
         return 5
     x = y = 2
     c += 1
-    #print(f"c = {c}")
+    # print(f"c = {c}")
     d = 1
 
     while d == 1:
@@ -71,13 +69,10 @@ def getFactor(n):
     return [p, (n // p)]
 
 
-#print(getFactor(1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139))
-#import sys
-#sys.exit(0)
 f = open(sys.argv[1], "r")
 
-for l in f:
-    n = int(l)
+for line in f:
+    n = int(line)
     fa = getFactor(n)
     print(f"{n}={fa[1]}*{fa[0]}")
     continue
@@ -86,6 +81,3 @@ for l in f:
     fa = getFactor(n)
     print(f"{n}={fa[1]}*{fa[0]}")
 f.close()
-#end = time.time()
-#print(f"time ={end - start}")
-#why this not working for 193993833211
