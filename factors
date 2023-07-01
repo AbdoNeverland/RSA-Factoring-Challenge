@@ -2,7 +2,8 @@
 #import time
 #start = time.time()
 import sys
-
+from random import randrange
+import math
 c = 1
 
 
@@ -41,17 +42,20 @@ def getf(n):
     else:
         return d
 
-
+def isPrime(n):
+    for i in range(2, int(math.sqrt(n))):
+        if n%i == 0:
+            return False
+    return True
 def getFactor(n):
     global c
     c = 1
-    try:
-        p = getf(n)
-        return [p, (n // p)]
-    except:
+    if isPrime(n):
         return [n, 1]
+    p = getf(n)
+    return [p, (n // p)]
 
-#print(getFactor(1718944270642558716715))
+#print(getFactor(1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139))
 #import sys
 #sys.exit(0)
 f = open(sys.argv[1], "r")
@@ -60,6 +64,8 @@ for l in f:
     n = int(l)
     fa = getFactor(n)
     print(f"{n}={fa[1]}*{fa[0]}")
+    n = randrange(999999999999)
 f.close()
 #end = time.time()
 #print(f"time ={end - start}")
+#why this not working for 193993833211

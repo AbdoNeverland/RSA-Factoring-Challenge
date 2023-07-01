@@ -1,4 +1,4 @@
-
+import math
 c = 1
 def gcd(x,y):
     if y == 0:
@@ -25,5 +25,10 @@ def getf(n):
         return getf(n)
     else:
         return d
-
-print(getf(1718944270642558716715))
+def isPrime(n):
+    for i in range(2, int(math.sqrt(n))):
+        if n%i == 0:
+            return i
+    return -1
+print(isPrime(719310057817))
+#print(getf(193993833211))
