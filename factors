@@ -4,38 +4,49 @@
 import sys
 
 c = 1
-def gcd(x,y):
+
+
+def gcd(x, y):
     if y == 0:
         return x
     return gcd(y, x % y)
+
+
 def g(x, c):
-    return (x*x +c)
+    return (x * x + c)
+
 
 def getf(n):
     global c
     if (n == 1):
         return n
-    if n % 2 ==0:
+    if n % 2 == 0:
         return 2
     x = y = 2
-    c +=1
-    d=1
+    c += 1
+    d = 1
 
-    while d ==1:
-        x=g(x,c) % n
-        y=g(g(y, c),c) %n
-        y=g(g(y, c),c) %n
-        d=gcd(abs(x - y), n)
+    while d == 1:
+        x = g(x, c) % n
+        y = g(g(y, c), c) % n
+        y = g(g(y, c), c) % n
+        d = gcd(abs(x - y), n)
 
-    if d == n: 
+    if d == n:
         return getf(n)
     else:
         return d
-def getFactor(n):
-    p = getf(n)
-    return [p, int(n / p)]
 
-f = open(sys.argv[1],"r")
+
+def getFactor(n):
+    try:
+        p = getf(n)
+        return [p, int(n / p)]
+    except:
+        return [n, 1]
+
+
+f = open(sys.argv[1], "r")
 
 for l in f:
     n = int(l)
