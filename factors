@@ -39,13 +39,17 @@ def getf(n):
 
 
 def getFactor(n):
+    global c
+    c = 1
     try:
         p = getf(n)
-        return [p, int(n / p)]
+        return [p, (n // p)]
     except:
         return [n, 1]
 
-
+#print(getFactor(1718944270642558716715))
+#import sys
+#sys.exit(0)
 f = open(sys.argv[1], "r")
 
 for l in f:
