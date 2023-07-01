@@ -29,6 +29,7 @@ def getf(n):
         return 5
     x = y = 2
     c += 1
+    #print(f"c = {c}")
     d = 1
 
     while d == 1:
@@ -42,21 +43,33 @@ def getf(n):
     else:
         return d
 
-def isPrime(n):
-    for i in range(2, int(math.sqrt(n))):
-        if n%i == 0:
+
+def is_prime_smaller(n):
+    for i in range(2, n // 2):
+        if n % i == 0:
             return False
     return True
+
+
+def is_prime(n, prec=3):
+    if n < 100:
+        return is_prime_smaller(n)
+    else:
+        a = randrange(2, n - 2 + 1)
+        if pow(a, n - 1, n) != 1:
+            return False
+    return True
+
+
 def getFactor(n):
     global c
     c = 1
-    if n < 999999999999 and isPrime(n):
+    isp = is_prime(n)
+    if isp:
         return [n, 1]
-    try:
-        p = getf(n)
-        return [p, (n // p)]
-    except:
-        return [n, 1]
+    p = getf(n)
+    return [p, (n // p)]
+
 
 #print(getFactor(1522605027922533360535618378132637429718068114961380688657908494580122963258952897654000350692006139))
 #import sys
@@ -67,10 +80,11 @@ for l in f:
     n = int(l)
     fa = getFactor(n)
     print(f"{n}={fa[1]}*{fa[0]}")
-    #n = randrange(999999999999)
-    #print(f"rand {n}")
-    #fa = getFactor(n)
-    #print(f"{n}={fa[1]}*{fa[0]}")    
+    continue
+    n = randrange(99999999999999999999)
+    print(f"rand {n}")
+    fa = getFactor(n)
+    print(f"{n}={fa[1]}*{fa[0]}")
 f.close()
 #end = time.time()
 #print(f"time ={end - start}")
