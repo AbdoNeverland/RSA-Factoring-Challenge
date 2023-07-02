@@ -93,10 +93,12 @@ facto = Facto()
 # sys.exit(0)
 
 if len(sys.argv) != 2:
+    print("Usage: factors <file>")
     sys.exit(1)
 try:
     f = open(sys.argv[1], "r")
-except e:
+except:
+    print(f"can't open file {sys.argv[1]}")
     sys.exit(1)
 
 
