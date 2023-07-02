@@ -47,7 +47,7 @@ def is_prime_smaller(n):
 
 
 def is_prime(n, prec=1):
-    if n < 100:
+    if n < 10:
         return is_prime_smaller(n)
     else:
         for i in range(prec):
@@ -56,15 +56,6 @@ def is_prime(n, prec=1):
                 return False
     return True
 
-
-def getFactor(n):
-    global c
-    c = 1
-    isp = is_prime(n)
-    if isp:
-        return [n, 1]
-    p = getf(n)
-    return [p, (n // p)]
 
 if len(sys.argv) != 2:
     sys.exit(1)
