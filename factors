@@ -19,7 +19,7 @@ def getf(n):
     global c
     if (n == 1):
         return n
-    for k in range(2,10):
+    for k in range(2,1000):
         if n % k == 0:
             return k
     x = y = 2
