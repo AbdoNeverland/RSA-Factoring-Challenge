@@ -76,5 +76,8 @@ for line in f:
         p = 1
     else:
         p = getf(n)
-    print(f"{n}={n // p}*{(p)}")
+    q = n // p
+    if p > q:
+        p,q=q,p
+    print(f"{n}={q}*{(p)}")
 f.close()
