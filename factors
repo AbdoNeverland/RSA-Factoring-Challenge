@@ -69,10 +69,10 @@ class Facto:
 
     def getAll(self, number):
         r = []
-        return self.prime_sqrt(number)
+        p = self.get(number)
         while p > 1:
             r.append(p)
-            p = self.prime_sqrt(self.number // p)
+            p = self.get(self.number // p)
         return 1 if len(r) == 0 else min(r)
 
     def get(self, number):
