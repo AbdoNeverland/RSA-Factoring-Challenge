@@ -4,7 +4,7 @@ from random import randrange
 import random
 c = 0
 number = 2
-
+# 931704858942888746196869
 def gcd(x, y):
     if y == 0:
         return x
@@ -13,13 +13,13 @@ def gcd(x, y):
 
 def g(x):
     global c, number
-    return (x**2 - c)%number
+    return (x**2 + c )%number
 
 def getRandom(start, end):
     return randrange(start, end +1)
 def getf():
     global c,number
-    c += 1
+    c += 4
     if (number == 1):
         return number
     for k in range(2,3):
