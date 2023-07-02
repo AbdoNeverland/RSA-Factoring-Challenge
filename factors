@@ -1,84 +1,98 @@
 #!/usr/bin/python3
 import sys
 from random import randrange
+import random
 
-c = 1
-
-
+# 931704858942888746196869
 def gcd(x, y):
     if y == 0:
         return x
     return gcd(y, x % y)
+def getRandom(start, end):
+    return randrange(start, end +1)
 
 
-def g(x, c):
-    return (x * x + c)
 
-
-def getf(n):
-    global c
-    if (n == 1):
-        return n
-    if n % 2 == 0:
-        return 2
-    if n % 3 == 0:
-        return 3
-    if n % 5 == 0:
-        return 5
-    x = y = 2
-    c += 1
-    # print(f"c = {c}")
-    d = 1
-
-    while d == 1:
-        x = g(x, c) % n
-        y = g(g(y, c), c) % n
-        y = g(g(y, c), c) % n
-        d = gcd(abs(x - y), n)
-
-    if d == n:
-        return getf(n)
-    else:
-        return d
-
-
-def is_prime_smaller(n):
-    for i in range(2, n // 2 + 1):
-        if n % i == 0:
-            return False
-    return True
-
-
-def is_prime(n, prec=5):
-    if n < 100:
-        return is_prime_smaller(n)
-    else:
-        for i in range(prec):
-            a = randrange(2, n - 2 + 1)
-            if pow(a, n - 1, n) != 1:
+class Facto:
+    def __init__(self, c = 0):
+        self.number = 1
+        self.c = c
+        self.x = 2
+        self.y = 2
+    def g(self,x):
+        return (x**2 + self.c)%self.number
+    def getf(self):
+        self.c += 1
+        if (self.number == 1):
+            return self.number
+        for k in range(2,10):
+            if self.number % k == 0:
+                return k
+        self.x = self.y = 3
+        d = 1
+    
+        while d == 1:
+            self.x = self.g(self.x)
+            self.y = self.g(self.g(self.y))
+            d = gcd(abs(self.x - self.y), self.number)
+    
+    
+        if d == self.number:
+            return self.getf()
+        else:
+            return d
+    def is_prime_smaller(self,n):
+        for i in range(2, n):
+            if n % i == 0:
                 return False
-    return True
+        return True
+    
+    
+    def is_prime(self,n, prec=3):
+        if n < 100:
+            return self.is_prime_smaller(n)
+        else:
+            for i in range(prec):
+                a = randrange(2, n - 2 + 1)
+                if pow(a, n - 1, n) != 1:
+                    return False
+        return True
+    def getAll(self,number):
+        r =[]
+        p = self.get(number)
+        while p > 1:
+            r.append(p)
+            p = self.get(self.number // p)
+        return  1 if len(r) == 0  else min(r)
+    def get(self, number):
+        self.number=number
+        p = 1
+        self.c= 0
+        if self.is_prime(number):
+            p = 1
+        else:
+            p = self.getf()
+        return p
 
 
-def getFactor(n):
-    global c
-    c = 1
-    isp = is_prime(n)
-    if isp:
-        return [n, 1]
-    p = getf(n)
-    return [p, (n // p)]
+facto = Facto()
 
+#print(facto.getAll(1718944270642558716715))
+#sys.exit(0)
+    
+if len(sys.argv) != 2:
+    sys.exit(1)
+try:
+    f = open(sys.argv[1], "r")
+except:
+    sys.exit(1)
 
-f = open(sys.argv[1], "r")
 
 for line in f:
-    n = int(line)
-    p = 1
-    if is_prime(n):
-        p = 10
-        continue
-    else:
-        p = getf(n)
-    print(f"{n}={n // p}*{(p)}")
+    number = int(line)
+    p = facto.getAll(number)
+    q = number // p
+    if p > q:
+        p,q=q,p
+    print(f"{number}={q}*{(p)}")
 f.close()
