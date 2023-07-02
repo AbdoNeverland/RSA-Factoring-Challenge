@@ -26,5 +26,5 @@ for line in f:
     q = number // p
     if p > q:
         p, q = q, p
-    print(f"{number}={q}*{(p)}")
+    print(f"{number:d}={q:d}*{p:d}")
 f.close()
