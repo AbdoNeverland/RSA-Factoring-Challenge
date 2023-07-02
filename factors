@@ -3,17 +3,14 @@ import math
 import sys
 # 931704858942888746196869
 
-
-def gcd(x, y):
-    if y == 0:
-        return x
-    return gcd(y, x % y)
-
-def prime_sqrt(n):
-    for i in range(2,round(math.sqrt(n))+1):
-        if n % i == 0:
-            return i
+def fact(number):
+    if number % 2 == 0:
+        return 2
+    for k in range(3, int(math.sqrt(number)), 2):
+        if number % k == 0:
+            return k
     return 1
+
 
 if len(sys.argv) != 2:
     sys.exit(1)
@@ -25,7 +22,7 @@ except e:
 
 for line in f:
     number = int(line)
-    p = prime_sqrt(number)
+    p = fact(number)
     q = number // p
     if p > q:
         p, q = q, p
