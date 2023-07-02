@@ -1,10 +1,5 @@
 #!/usr/bin/python3
-from random import randrange
-f = open("t2","w")
+import math
+import random
+from fractions import gcd
 
-for i in range(20):
-    a = i
-    b = i * i
-    print(f"{a*b}={a}*{b}")
-    f.write(f"{a*b}\n")
-f.close()
