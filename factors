@@ -10,21 +10,13 @@ def fact(number):
         if number % k == 0:
             return k
     return 1
+def main():
+    with open(sys.argv[1], "r") as f:
+        for line in f:
+            number = int(line)
+            p = fact(number)
+            q = number // p
+            print(f"{number:d}={q:d}*{p:d}")
+        f.close()
 
-
-if len(sys.argv) != 2:
-    sys.exit(1)
-try:
-    f = open(sys.argv[1], "r")
-except e:
-    sys.exit(1)
-
-
-for line in f:
-    number = int(line)
-    p = fact(number)
-    q = number // p
-    if p > q:
-        p, q = q, p
-    print(f"{number:d}={q:d}*{p:d}")
-f.close()
+main()
