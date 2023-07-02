@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import math
 import random
-from fractions import gcd
+
 
