@@ -68,8 +68,10 @@ def getFactor(n):
 
 if len(sys.argv) != 2:
     sys.exit(1)
-f = open(sys.argv[1], "r")
-
+try:
+    f = open(sys.argv[1], "r")
+except:
+    sys.exit(1)
 for line in f:
     n = int(line)
     p = 1
