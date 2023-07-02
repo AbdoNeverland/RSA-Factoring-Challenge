@@ -12,7 +12,7 @@ def gcd(x, y):
 
 
 def g(x, c):
-    return ((x * x + c)%n)
+    return ((x * x + c))
 
 def getRandom(start, end):
     return randrange(start, end +1)
@@ -29,9 +29,9 @@ def getf(n):
     d = 1
 
     while d == 1:
-        x = g(x, c)
-        y = g(g(y, c), c)
-       # y = g(g(y, c), c)
+        x = g(x, c)%n
+        y = g(g(y, c), c)%n
+        y = g(g(y, c), c)%n
         d = gcd(abs(x - y), n)
 
 
